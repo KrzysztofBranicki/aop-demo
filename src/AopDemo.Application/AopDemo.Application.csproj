@@ -45,6 +45,7 @@
     <Compile Include="User\ChangePasswordRequest.cs" />
     <Compile Include="User\IUserService.cs" />
     <Compile Include="User\UserService.cs" />
+    <Compile Include="User\UserServiceExceptionHandlingDecorator.cs" />
     <Compile Include="User\UserServiceLoggingDecorator.cs" />
     <Compile Include="User\UserServiceValidatingDecorator.cs" />
   </ItemGroup>

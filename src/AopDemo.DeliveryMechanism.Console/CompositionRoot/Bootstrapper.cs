@@ -21,6 +21,7 @@ namespace AopDemo.DeliveryMechanism.Console.CompositionRoot
 
             container.Register(Component.For<IUserService>().ImplementedBy<UserServiceLoggingDecorator>());
             container.Register(Component.For<IUserService>().ImplementedBy<UserServiceValidatingDecorator>());
+            container.Register(Component.For<IUserService>().ImplementedBy<UserServiceExceptionHandlingDecorator>());
             container.Register(Component.For<IUserService>().ImplementedBy<UserService>());
 
             return container;
