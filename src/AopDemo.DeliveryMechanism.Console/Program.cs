@@ -11,7 +11,7 @@ namespace AopDemo.DeliveryMechanism.Console
         static void Main()
         {
             var container = new Bootstrapper().CreateAndConfigureContainer();
-            var userService = container.Resolve<UserService>();
+            var userService = container.Resolve<IUserService>();
 
             var request = new ChangePasswordRequest { UserId = 1, NewPassword = "secret!" }; //VALID REQUEST
             //var request = new ChangePasswordRequest { UserId = 1 }; //INVALID - EMPTY PASSWORD

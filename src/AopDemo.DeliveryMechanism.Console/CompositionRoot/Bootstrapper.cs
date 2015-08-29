@@ -19,7 +19,8 @@ namespace AopDemo.DeliveryMechanism.Console.CompositionRoot
             container.Register(Component.For<IPasswordStrengthValidator>().ImplementedBy<DummyPasswordStrengthValidator>());
             container.Register(Component.For<IUserRepository>().ImplementedBy<DummyUserRepository>());
 
-            container.Register(Component.For<UserService>());
+            container.Register(Component.For<IUserService>().ImplementedBy<UserServiceLoggingDecorator>());
+            container.Register(Component.For<IUserService>().ImplementedBy<UserService>());
 
             return container;
         }

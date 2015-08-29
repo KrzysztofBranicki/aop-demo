@@ -51,10 +51,10 @@ namespace AopDemo.Tests
             Assert.That(result.Succeeded, Is.False);
         }
 
-        private static UserService GetUserService()
+        private static IUserService GetUserService()
         {
             var container = new Bootstrapper().CreateAndConfigureContainer();
-            return container.Resolve<UserService>();
+            return container.Resolve<IUserService>();
         }
     }
 }

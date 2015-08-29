@@ -7,7 +7,7 @@ using Common.Validation;
 
 namespace AopDemo.Application.User
 {
-    public class UserService
+    public class UserService : IUserService
     {
         private readonly IDtoValidator _validator;
         private readonly ILogger _logger;
@@ -24,8 +24,6 @@ namespace AopDemo.Application.User
 
         public Response ChangePassword(ChangePasswordRequest request)
         {
-            _logger.LogInfo("Method ChangePassword started at: " + DateTime.Now);
-
             var vr = _validator.Validate(request);
             if (!vr.IsValid)
                 return Response.CreateFailureResponse(vr.Message);
@@ -49,8 +47,6 @@ namespace AopDemo.Application.User
                 _logger.LogError(exception);
                 return Response.CreateFailureResponse(exception.Message);
             }
-
-            _logger.LogInfo("Method ChangePassword ended at: " + DateTime.Now);
 
             return Response.CreateSuccessfulResponse();
         }
