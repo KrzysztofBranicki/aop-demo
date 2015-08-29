@@ -9,14 +9,12 @@ namespace AopDemo.Application.User
 {
     public class UserService : IUserService
     {
-        private readonly IDtoValidator _validator;
         private readonly ILogger _logger;
         private readonly IUserRepository _userRepository;
         private readonly IPasswordStrengthValidator _passwordStrengthValidator;
 
-        public UserService(IDtoValidator validator, ILogger logger, IUserRepository userRepository, IPasswordStrengthValidator passwordStrengthValidator)
+        public UserService(ILogger logger, IUserRepository userRepository, IPasswordStrengthValidator passwordStrengthValidator)
         {
-            _validator = validator;
             _logger = logger;
             _userRepository = userRepository;
             _passwordStrengthValidator = passwordStrengthValidator;
@@ -24,10 +22,6 @@ namespace AopDemo.Application.User
 
         public Response ChangePassword(ChangePasswordRequest request)
         {
-            var vr = _validator.Validate(request);
-            if (!vr.IsValid)
-                return Response.CreateFailureResponse(vr.Message);
-
             try
             {
                 using (var ts = new TransactionScope())

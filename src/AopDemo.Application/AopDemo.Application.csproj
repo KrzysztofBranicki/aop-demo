@@ -46,6 +46,7 @@
     <Compile Include="User\IUserService.cs" />
     <Compile Include="User\UserService.cs" />
     <Compile Include="User\UserServiceLoggingDecorator.cs" />
+    <Compile Include="User\UserServiceValidatingDecorator.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AopDemo.Domain\AopDemo.Domain.csproj">
