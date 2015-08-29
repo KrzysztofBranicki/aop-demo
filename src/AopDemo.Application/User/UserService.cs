@@ -1,5 +1,4 @@
-﻿using System.Transactions;
-using AopDemo.Domain.User;
+﻿using AopDemo.Domain.User;
 using Common;
 
 namespace AopDemo.Application.User
@@ -17,17 +16,12 @@ namespace AopDemo.Application.User
 
         public Response ChangePassword(ChangePasswordRequest request)
         {
-            using (var ts = new TransactionScope())
-            {
-                var user = _userRepository.Get(request.UserId);
-                if (!_passwordStrengthValidator.IsPasswordGoodEnough(request.NewPassword))
-                    return Response.CreateFailureResponse("too weak password");
+            var user = _userRepository.Get(request.UserId);
+            if (!_passwordStrengthValidator.IsPasswordGoodEnough(request.NewPassword))
+                return Response.CreateFailureResponse("too weak password");
 
-                user.ChangePassword(request.NewPassword);
-                _userRepository.Update(user);
-
-                ts.Complete();
-            }
+            user.ChangePassword(request.NewPassword);
+            _userRepository.Update(user);
 
             return Response.CreateSuccessfulResponse();
         }
