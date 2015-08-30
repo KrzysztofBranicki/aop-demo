@@ -63,6 +63,10 @@
       <Project>{7451DBDB-DC4F-49EA-8CD3-66702F318E42}</Project>
       <Name>AopDemo.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Common.Aspects\Common.Aspects.csproj">
+      <Project>{CC034D9F-44DC-4457-9628-B39FD989FD49}</Project>
+      <Name>Common.Aspects</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{4D2E59C3-F449-4DEE-99A4-1FF0BFFC66FD}</Project>
       <Name>Common</Name>

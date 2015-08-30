@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AopDemo.Application", "AopDemo.Application\AopDemo.Application.csproj", "{F9BE2EC0-3FED-4944-97EC-ACEE91E5F4AF}"
 EndProject
@@ -16,6 +16,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AopDemo.DeliveryMechanism.Console", "AopDemo.DeliveryMechanism.Console\AopDemo.DeliveryMechanism.Console.csproj", "{E2828EB0-E5BB-427D-A991-A1DD95CCCD2F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AopDemo.Tests", "AopDemo.Tests\AopDemo.Tests.csproj", "{42A7B9FB-ABE6-4AFB-BDC2-22F4FDAC6088}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Aspects", "Common.Aspects\Common.Aspects.csproj", "{CC034D9F-44DC-4457-9628-B39FD989FD49}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,10 @@ Global
 		{42A7B9FB-ABE6-4AFB-BDC2-22F4FDAC6088}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42A7B9FB-ABE6-4AFB-BDC2-22F4FDAC6088}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42A7B9FB-ABE6-4AFB-BDC2-22F4FDAC6088}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC034D9F-44DC-4457-9628-B39FD989FD49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC034D9F-44DC-4457-9628-B39FD989FD49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC034D9F-44DC-4457-9628-B39FD989FD49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC034D9F-44DC-4457-9628-B39FD989FD49}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,5 +59,6 @@ Global
 		{4D2E59C3-F449-4DEE-99A4-1FF0BFFC66FD} = {1BF4DE15-3C9B-436B-84BE-D9B77EF057F4}
 		{E2828EB0-E5BB-427D-A991-A1DD95CCCD2F} = {D92F4D13-6B54-447E-B480-94A3BCDE5F35}
 		{42A7B9FB-ABE6-4AFB-BDC2-22F4FDAC6088} = {D92F4D13-6B54-447E-B480-94A3BCDE5F35}
+		{CC034D9F-44DC-4457-9628-B39FD989FD49} = {1BF4DE15-3C9B-436B-84BE-D9B77EF057F4}
 	EndGlobalSection
 EndGlobal

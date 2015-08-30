@@ -1,10 +1,13 @@
 ﻿using AopDemo.Application.User;
 using AopDemo.Domain.User;
-
-using Castle.MicroKernel.Registration;
-using Castle.Windsor;
+using Common.Aspects;
 using Common.Logging;
 using Common.Validation;
+
+using Castle.Core;
+using Castle.DynamicProxy;
+using Castle.MicroKernel.Registration;
+using Castle.Windsor;
 
 namespace AopDemo.DeliveryMechanism.Console.CompositionRoot
 {
@@ -19,11 +22,11 @@ namespace AopDemo.DeliveryMechanism.Console.CompositionRoot
             container.Register(Component.For<IPasswordStrengthValidator>().ImplementedBy<DummyPasswordStrengthValidator>());
             container.Register(Component.For<IUserRepository>().ImplementedBy<DummyUserRepository>());
 
-            container.Register(Component.For<IUserService>().ImplementedBy<UserServiceLoggingDecorator>());
-            container.Register(Component.For<IUserService>().ImplementedBy<UserServiceValidatingDecorator>());
-            container.Register(Component.For<IUserService>().ImplementedBy<UserServiceExceptionHandlingDecorator>());
-            container.Register(Component.For<IUserService>().ImplementedBy<UserServiceTransactionalDecorator>());
-            container.Register(Component.For<IUserService>().ImplementedBy<UserService>());
+            //Register all aspects at once
+            container.Register(Classes.FromAssemblyContaining<LoggingAspect>().BasedOn<IInterceptor>().WithServiceSelf().LifestyleTransient());
+
+            container.Register(Component.For<IUserService>().ImplementedBy<UserService>().Interceptors(
+                InterceptorReference.ForType<LoggingAspect>()).First);
 
             return container;
         }
