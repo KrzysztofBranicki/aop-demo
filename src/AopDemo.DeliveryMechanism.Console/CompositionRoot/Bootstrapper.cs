@@ -28,7 +28,8 @@ namespace AopDemo.DeliveryMechanism.Console.CompositionRoot
             container.Register(Component.For<IUserService>().ImplementedBy<UserService>().Interceptors(
                 InterceptorReference.ForType<LoggingAspect>(),
                 InterceptorReference.ForType<ValidatingAspect>(),
-                InterceptorReference.ForType<ExceptionHandlingAspect>()).First);
+                InterceptorReference.ForType<ExceptionHandlingAspect>(),
+                InterceptorReference.ForType<TransactionalAspect>()).First);
 
             return container;
         }
