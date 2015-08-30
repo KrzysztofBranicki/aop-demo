@@ -26,7 +26,8 @@ namespace AopDemo.DeliveryMechanism.Console.CompositionRoot
             container.Register(Classes.FromAssemblyContaining<LoggingAspect>().BasedOn<IInterceptor>().WithServiceSelf().LifestyleTransient());
 
             container.Register(Component.For<IUserService>().ImplementedBy<UserService>().Interceptors(
-                InterceptorReference.ForType<LoggingAspect>()).First);
+                InterceptorReference.ForType<LoggingAspect>(),
+                InterceptorReference.ForType<ValidatingAspect>()).First);
 
             return container;
         }
