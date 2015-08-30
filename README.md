@@ -1,2 +1,10 @@
 # aop-demo
-Project that demonstrates possibilities of refactoring cross-cutting concerns using Aspect-oriented programming
+This project demonstrates possibilities of refactoring [cross-cutting concerns](https://en.wikipedia.org/wiki/Cross-cutting_concern) like: logging, exception handling, transaction management and others using [**Aspect-oriented programming**](https://en.wikipedia.org/wiki/Aspect-oriented_programming). It uses [Castle DynamicProxy](http://www.castleproject.org/projects/dynamicproxy/) as a framework to provide dynamic interception capabilities to implement aspects and [Castle Windsor](http://www.castleproject.org/projects/windsor/) as a dependency injection container.
+
+Repository contains three branches that demonstrate possible refactoring approaches:
+
+- **master** - Contains initial sample project that will be the subject of refactoring in next two branches. We focus on UserService class that contains lots of cross-cutting concerns like: logging, validation, exceptions handling and transaction management backed in to it. This approach violates [SOLID](https://skillsmatter.com/skillscasts/3220-uncle-bob-expert-insights) principles, in particular single responsibility principle and open close principle also results in repetitive code.
+
+- **refactoring-with-decorators** - In this branch we use [decorator design pattern](https://en.wikipedia.org/wiki/Decorator_pattern) to move the responsibility of: logging, validation, exception handling and transaction management out of the UserService class. This makes code SOLID but in the real world project it would require creating separate decorators for all service classes in the system as decorator is bound to the specific interface. Therefore we need solution that is both [SOLID](https://skillsmatter.com/skillscasts/3220-uncle-bob-expert-insights) and [DRY](https://pl.wikipedia.org/wiki/DRY).
+
+- **refactoring-with-aspects** - In this branch we take the AOP approach to implement cross-cutting concerns. This results in creation of aspects that are unlike decorators applicable to any service interface. This approach results in SOLID and DRY solution. Use of dynamic interception framework which is integrated with DI container instead of IL Weaving tool allows for easy dependency injection inside aspects.
